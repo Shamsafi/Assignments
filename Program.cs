@@ -1,37 +1,23 @@
-﻿namespace Flipping_a_Coin
-{   //Flip a coin
+﻿namespace Leap_Year
+{      //Leap_Year
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter the number of times to flip the coin: ");
-            int numFlips = int.Parse(Console.ReadLine());
+            Console.Write("Enter a 4-digit year: ");
+            int year = int.Parse(Console.ReadLine());
 
-            //int numFlips = 1000;
-            int numHeads = 0;
-            int numTails = 0;
+            bool isLeapYear = (year % 4 == 0) && (year % 100 != 0 || year % 400 == 0);
 
-            for (int i = 0; i < numFlips; i++)
+            if (isLeapYear)
             {
-                Random rand = new Random();
-                int flipResult = rand.Next(0, 2);
-
-                if (flipResult == 0)
-                {
-                    numHeads++;
-                }
-
-                else
-                {
-                    numTails++;
-                }
+                Console.WriteLine($"{year} is a leap year.");
             }
 
-            double percentHeads = (double)numHeads / numFlips * 100;
-            double percentTails = (double)numTails / numFlips * 100;
-
-            Console.WriteLine($"Heads: {percentHeads}%");
-            Console.WriteLine($"Tails: {percentTails}%");
+            else
+            {
+                Console.WriteLine($"{year} is not a leap year.");
+            }
         }
     }
 }
