@@ -1,37 +1,22 @@
-﻿namespace Flipping_a_Coin
-{   //Flip a coin
+﻿namespace testcase2
+{      //Prime Factor
     internal class Program
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter the number of times to flip the coin: ");
-            int numFlips = int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter a number");
+            int n = int.Parse(Console.ReadLine());
 
-            //int numFlips = 1000;
-            int numHeads = 0;
-            int numTails = 0;
+            Console.WriteLine("Prime factor of {0}:", n);
 
-            for (int i = 0; i < numFlips; i++)
+            for (int i=2; i<=n; i++)
             {
-                Random rand = new Random();
-                int flipResult = rand.Next(0, 2);
-
-                if (flipResult == 0)
+                while (n % i == 0)
                 {
-                    numHeads++;
-                }
-
-                else
-                {
-                    numTails++;
+                    Console.WriteLine("{0}", i);
+                    n /= i;
                 }
             }
-
-            double percentHeads = (double)numHeads / numFlips * 100;
-            double percentTails = (double)numTails / numFlips * 100;
-
-            Console.WriteLine($"Heads: {percentHeads}%");
-            Console.WriteLine($"Tails: {percentTails}%");
         }
     }
 }
